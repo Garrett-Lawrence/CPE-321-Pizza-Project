@@ -5,11 +5,11 @@ public class Size {
 
     public Size(String name){
         size = name;
-        if (size == "small")
+        if (size == "Small")
             sizePrice = 10.00;
-        else if (size == "medium")
+        else if (size == "Medium")
             sizePrice = 12.50;
-        else if (size == "large")
+        else if (size == "Large")
             sizePrice = 15.00;
     }
 
