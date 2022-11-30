@@ -7,7 +7,7 @@ public class ToppingsList {
     private ArrayList<Topping> toppingsList;
     private double toppingsPrice;
     public ToppingsList(){
-        toppingsList = new ArrayList<>();
+        toppingsList = new ArrayList<>() ;
     }
 
     public void remove(Topping topping){
