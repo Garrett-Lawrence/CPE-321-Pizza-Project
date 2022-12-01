@@ -5,15 +5,15 @@ public class PopularMenu extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
-    private JRadioButton radioButton1;
-    private JRadioButton radioButton2;
-    private JRadioButton radioButton3;
-    private JRadioButton radioButton4;
-    private JRadioButton radioButton5;
-    private JRadioButton radioButton6;
-    private JRadioButton radioButton7;
-    private JRadioButton radioButton8;
-    private JRadioButton radioButton9;
+    private JRadioButton smallRadioButton;
+    private JRadioButton largeRadioButton;
+    private JRadioButton mediumRadioButton;
+    private JRadioButton smallRadioButton1;
+    private JRadioButton largeRadioButton1;
+    private JRadioButton mediumRadioButton1;
+    private JRadioButton smallRadioButton2;
+    private JRadioButton largeRadioButton2;
+    private JRadioButton mediumRadioButton2;
 
     public PopularMenu() {
         setContentPane(contentPane);
