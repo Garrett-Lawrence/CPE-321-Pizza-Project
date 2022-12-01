@@ -18,7 +18,7 @@ public class Pizza {
     /**
      * Constructor Pizza
      */
-    public Pizza(ToppingsList toppings, Crust crust, Size size, Sauce sauce){
+    public Pizza(ToppingsList toppings, Crust crust, Sauce sauce, Size size){
         pizzaToppings = toppings;
         pizzaCrust = crust;
         pizzaSauce = sauce;
@@ -26,9 +26,21 @@ public class Pizza {
     }
 
     public double getPizzaPrice(){
-        pizzaPrice = pizzaToppings.getToppingsPrice() + pizzaCrust.getCrustPrice() +
-                pizzaSauce.getSaucePrice() + pizzaSize.getSizePrice();
+        pizzaPrice = this.pizzaToppings.getToppingsPrice() + this.pizzaCrust.getCrustPrice() +
+                this.pizzaSauce.getSaucePrice() + this.pizzaSize.getSizePrice();
         return pizzaPrice;
+    }
+
+    public ToppingsList getPizzaToppings() {
+        return this.pizzaToppings;
+    }
+
+    public Crust getPizzaCrust() {
+        return this.pizzaCrust;
+    }
+
+    public Sauce getPizzaSauce() {
+        return this.pizzaSauce;
     }
 
     public void changeItem(String itemType, String newItem, double price) {

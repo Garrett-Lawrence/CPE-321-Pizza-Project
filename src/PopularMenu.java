@@ -6,8 +6,13 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class PopularMenu extends JDialog {
+    private Pizza popularPizza1;
+    private Pizza popularPizza2;
+    private Pizza popularPizza3;
+    private Pizza pizza;
     private JPanel contentPane;
     private JButton checkoutButton;
     private JButton buttonCancel;
@@ -64,16 +69,104 @@ public class PopularMenu extends JDialog {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+
+
     }
 
     private void onCheckout() {
-        dispose();
-        Checkout checkout = new Checkout();
-        checkout.pack();
-        checkout.setVisible(true);
+        boolean check = true;
+        if (smallRadioButton.isSelected()) {
+            //pizza = new Pizza(popularPizza1.getPizzaToppings(), popularPizza1.getPizzaCrust(),
+            //popularPizza1.getPizzaSauce(), new Size("Small"));
+        }
+        else if (smallRadioButton1.isSelected()) {
+            pizza = new Pizza(popularPizza2.getPizzaToppings(), popularPizza2.getPizzaCrust(),
+                    popularPizza2.getPizzaSauce(), new Size("Small"));
+        }
+        else if (smallRadioButton2.isSelected()) {
+            pizza = new Pizza(popularPizza3.getPizzaToppings(), popularPizza3.getPizzaCrust(),
+                    popularPizza3.getPizzaSauce(), new Size("Small"));
+        }
+        else if (mediumRadioButton.isSelected()) {
+            pizza = new Pizza(popularPizza1.getPizzaToppings(), popularPizza1.getPizzaCrust(),
+                    popularPizza1.getPizzaSauce(), new Size("Medium"));
+        }
+        else if (mediumRadioButton1.isSelected()) {
+            pizza = new Pizza(popularPizza2.getPizzaToppings(), popularPizza2.getPizzaCrust(),
+                    popularPizza2.getPizzaSauce(), new Size("Medium"));
+        }
+        else if (mediumRadioButton2.isSelected()) {
+            pizza = new Pizza(popularPizza3.getPizzaToppings(), popularPizza3.getPizzaCrust(),
+                    popularPizza3.getPizzaSauce(), new Size("Medium"));
+        }
+        else if (largeRadioButton.isSelected()) {
+            pizza = new Pizza(popularPizza1.getPizzaToppings(), popularPizza1.getPizzaCrust(),
+                    popularPizza1.getPizzaSauce(), new Size("Large"));
+        }
+        else if (largeRadioButton1.isSelected()) {
+            pizza = new Pizza(popularPizza2.getPizzaToppings(), popularPizza2.getPizzaCrust(),
+                    popularPizza2.getPizzaSauce(), new Size("Large"));
+        }
+        else if (largeRadioButton2.isSelected()) {
+            pizza = new Pizza(popularPizza3.getPizzaToppings(), popularPizza3.getPizzaCrust(),
+                    popularPizza3.getPizzaSauce(), new Size("Large"));
+        }
+        else {
+            check = false;
+            ErrorWindow errorWindow = new ErrorWindow();
+            errorWindow.pack();
+            errorWindow.setVisible(true);
+        }
+        if (check == true) {
+            dispose();
+            Checkout checkout = new Checkout();
+            checkout.pack();
+            checkout.setVisible(true);
+        }
     }
 
     private void onAddAnother() {
+        if (smallRadioButton.isSelected()) {
+            //pizza = new Pizza(popularPizza1.getPizzaToppings(), popularPizza1.getPizzaCrust(),
+                    //popularPizza1.getPizzaSauce(), new Size("Small"));
+        }
+        else if (smallRadioButton1.isSelected()) {
+            pizza = new Pizza(popularPizza2.getPizzaToppings(), popularPizza2.getPizzaCrust(),
+                    popularPizza2.getPizzaSauce(), new Size("Small"));
+        }
+        else if (smallRadioButton2.isSelected()) {
+            pizza = new Pizza(popularPizza3.getPizzaToppings(), popularPizza3.getPizzaCrust(),
+                    popularPizza3.getPizzaSauce(), new Size("Small"));
+        }
+        else if (mediumRadioButton.isSelected()) {
+            pizza = new Pizza(popularPizza1.getPizzaToppings(), popularPizza1.getPizzaCrust(),
+                    popularPizza1.getPizzaSauce(), new Size("Medium"));
+        }
+        else if (mediumRadioButton1.isSelected()) {
+            pizza = new Pizza(popularPizza2.getPizzaToppings(), popularPizza2.getPizzaCrust(),
+                    popularPizza2.getPizzaSauce(), new Size("Medium"));
+        }
+        else if (mediumRadioButton2.isSelected()) {
+            pizza = new Pizza(popularPizza3.getPizzaToppings(), popularPizza3.getPizzaCrust(),
+                    popularPizza3.getPizzaSauce(), new Size("Medium"));
+        }
+        else if (largeRadioButton.isSelected()) {
+            pizza = new Pizza(popularPizza1.getPizzaToppings(), popularPizza1.getPizzaCrust(),
+                    popularPizza1.getPizzaSauce(), new Size("Large"));
+        }
+        else if (largeRadioButton1.isSelected()) {
+            pizza = new Pizza(popularPizza2.getPizzaToppings(), popularPizza2.getPizzaCrust(),
+                    popularPizza2.getPizzaSauce(), new Size("Large"));
+        }
+        else if (largeRadioButton2.isSelected()) {
+            pizza = new Pizza(popularPizza3.getPizzaToppings(), popularPizza3.getPizzaCrust(),
+                    popularPizza3.getPizzaSauce(), new Size("Large"));
+        }
+        else {
+            ErrorWindow errorWindow = new ErrorWindow();
+            errorWindow.pack();
+            errorWindow.setVisible(true);
+        }
         dispose();
         SecondWindow secondWindow = new SecondWindow();
         secondWindow.pack();
