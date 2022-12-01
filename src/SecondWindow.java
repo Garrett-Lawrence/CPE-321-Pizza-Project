@@ -6,6 +6,7 @@ public class SecondWindow extends JDialog {
     private JPanel contentPane;
     private JButton buttonPopularMenu;
     private JButton buttonCustomMenu;
+    public Order currentOrder;
 
     public SecondWindow() {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();

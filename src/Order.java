@@ -10,15 +10,19 @@ public class Order {
     }
 
     public void addPizzaToOrder(Pizza newPizza){
-        pizzaList.add(newPizza);
+        this.pizzaList.add(newPizza);
+    }
+
+    public int getPizzaCount() {
+        return this.pizzaList.size();
     }
 
     public double getOrderPrice(){
         double sum = 0;
-        for (int i = 0; i < pizzaList.size(); i++){
-            sum += pizzaList.get(i).getPizzaPrice();
+        for (int i = 0; i < this.pizzaList.size(); i++){
+            sum += this.pizzaList.get(i).getPizzaPrice();
         }
-        orderPrice = sum;
+        this.orderPrice = sum;
         return sum;
     }
 
