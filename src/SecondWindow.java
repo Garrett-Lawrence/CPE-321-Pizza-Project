@@ -11,7 +11,12 @@ public class SecondWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 PopularMenu popularMenu = new PopularMenu();
-                popularMenu.setVisible(true());
+            }
+        });
+        customMenuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CustomMenu customMenu = new CustomMenu();
             }
         });
     }

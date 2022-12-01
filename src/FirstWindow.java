@@ -10,7 +10,6 @@ public class FirstWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 SecondWindow secondWindow = new SecondWindow();
-                secondWindow.setVisible(true());
             }
         });
     }
