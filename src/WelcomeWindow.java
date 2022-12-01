@@ -1,25 +1,25 @@
 import javax.swing.*;
 import java.awt.event.*;
 
-public class SecondWindow extends JDialog {
+public class WelcomeWindow extends JDialog {
     private JPanel contentPane;
-    private JButton buttonPopularMenu;
-    private JButton buttonCustomMenu;
+    private JButton buttonOK;
+    private JButton buttonCancel;
 
-    public SecondWindow() {
+    public WelcomeWindow() {
         setContentPane(contentPane);
         setModal(true);
-        getRootPane().setDefaultButton(buttonPopularMenu);
+        getRootPane().setDefaultButton(buttonOK);
 
-        buttonPopularMenu.addActionListener(new ActionListener() {
+        buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onPopularMenu();
+                onStartOrder();
             }
         });
 
-        buttonCustomMenu.addActionListener(new ActionListener() {
+        buttonCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onCustomMenu();
+                onCancel();
             }
         });
 
@@ -39,17 +39,22 @@ public class SecondWindow extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onPopularMenu() {
-        // add your code here
+    private void onStartOrder() {
+        SecondWindow secondWindow = new SecondWindow();
+        secondWindow.pack();
+        secondWindow.setVisible(true);
         dispose();
     }
 
-    private void onCustomMenu() {
-        // add your code here if necessary
-        dispose();
-    }
     private void onCancel() {
         // add your code here if necessary
         dispose();
+    }
+
+    public static void main(String[] args) {
+        WelcomeWindow dialog = new WelcomeWindow();
+        dialog.pack();
+        dialog.setVisible(true);
+        System.exit(0);
     }
 }
