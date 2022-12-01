@@ -57,4 +57,8 @@ public class WelcomeWindow extends JDialog {
         dialog.setVisible(true);
         System.exit(0);
     }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
+    }
 }

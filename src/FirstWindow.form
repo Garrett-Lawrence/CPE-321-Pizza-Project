@@ -5,7 +5,9 @@
     <constraints>
       <xy x="8" y="6" width="712" height="484"/>
     </constraints>
-    <properties/>
+    <properties>
+      <preferredSize width="800" height="800"/>
+    </properties>
     <border type="none"/>
     <children>
       <component id="3049f" class="javax.swing.JButton" binding="startOrderButton" default-binding="true">
