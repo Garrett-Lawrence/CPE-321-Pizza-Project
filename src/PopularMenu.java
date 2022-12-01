@@ -38,6 +38,8 @@ public class PopularMenu extends JDialog {
         group.add(smallRadioButton1); group.add(mediumRadioButton1); group.add(largeRadioButton1);
         group.add(smallRadioButton2); group.add(mediumRadioButton2); group.add(largeRadioButton2);
 
+        //set for popular pizzas
+
         checkoutButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCheckout();
@@ -126,9 +128,10 @@ public class PopularMenu extends JDialog {
     }
 
     private void onAddAnother() {
+        boolean check = true;
         if (smallRadioButton.isSelected()) {
             //pizza = new Pizza(popularPizza1.getPizzaToppings(), popularPizza1.getPizzaCrust(),
-                    //popularPizza1.getPizzaSauce(), new Size("Small"));
+            //popularPizza1.getPizzaSauce(), new Size("Small"));
         }
         else if (smallRadioButton1.isSelected()) {
             pizza = new Pizza(popularPizza2.getPizzaToppings(), popularPizza2.getPizzaCrust(),
@@ -163,14 +166,17 @@ public class PopularMenu extends JDialog {
                     popularPizza3.getPizzaSauce(), new Size("Large"));
         }
         else {
+            check = false;
             ErrorWindow errorWindow = new ErrorWindow();
             errorWindow.pack();
             errorWindow.setVisible(true);
         }
-        dispose();
-        SecondWindow secondWindow = new SecondWindow();
-        secondWindow.pack();
-        secondWindow.setVisible(true);
+        if (check == true) {
+            dispose();
+            SecondWindow secondWindow = new SecondWindow();
+            secondWindow.pack();
+            secondWindow.setVisible(true);
+        }
     }
 
     private void onCancel() {
