@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class PopularMenu extends JDialog {
     private JPanel contentPane;
-    private JButton buttonOK;
+    private JButton checkoutButton;
     private JButton buttonCancel;
     private JRadioButton smallRadioButton;
     private JRadioButton largeRadioButton;
@@ -20,11 +20,12 @@ public class PopularMenu extends JDialog {
     private JRadioButton smallRadioButton2;
     private JRadioButton largeRadioButton2;
     private JRadioButton mediumRadioButton2;
+    private JButton addAnotherButton;
 
     public PopularMenu() {
         setContentPane(contentPane);
         setModal(true);
-        getRootPane().setDefaultButton(buttonOK);
+        getRootPane().setDefaultButton(checkoutButton);
 
         // Grouped all 9 buttons together so that only one can be clicked at a time
         ButtonGroup group = new ButtonGroup();
@@ -32,12 +33,17 @@ public class PopularMenu extends JDialog {
         group.add(smallRadioButton1); group.add(mediumRadioButton1); group.add(largeRadioButton1);
         group.add(smallRadioButton2); group.add(mediumRadioButton2); group.add(largeRadioButton2);
 
-        buttonOK.addActionListener(new ActionListener() {
+        checkoutButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                onCheckout();
             }
         });
 
+        addAnotherButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                onAddAnother();
+            }
+        });
         buttonCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCancel();
@@ -60,14 +66,25 @@ public class PopularMenu extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
-    private void onOK() {
-        // add your code here
+    private void onCheckout() {
         dispose();
+        Checkout checkout = new Checkout();
+        checkout.pack();
+        checkout.setVisible(true);
+    }
+
+    private void onAddAnother() {
+        dispose();
+        SecondWindow secondWindow = new SecondWindow();
+        secondWindow.pack();
+        secondWindow.setVisible(true);
     }
 
     private void onCancel() {
-        // add your code here if necessary
         dispose();
+        SecondWindow secondWindow = new SecondWindow();
+        secondWindow.pack();
+        secondWindow.setVisible(true);
     }
 
     public void getPopularToppings() {
@@ -93,13 +110,6 @@ public class PopularMenu extends JDialog {
 
         //TODO for loop here to parse through the list of objects oldPizzas and find popular toppings
 
-    }
-
-    public static void main(String[] args) {
-        PopularMenu dialog = new PopularMenu();
-        dialog.pack();
-        dialog.setVisible(true);
-        System.exit(0);
     }
 
 }

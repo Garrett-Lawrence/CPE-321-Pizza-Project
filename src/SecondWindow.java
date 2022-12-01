@@ -47,7 +47,9 @@ public class SecondWindow extends JDialog {
     }
 
     private void onCustomMenu() {
-        // add your code here if necessary
+        CustomMenu customMenu = new CustomMenu();
+        customMenu.pack();
+        customMenu.setVisible(true);
         dispose();
     }
     private void onCancel() {
