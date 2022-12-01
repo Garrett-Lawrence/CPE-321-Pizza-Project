@@ -40,7 +40,9 @@ public class SecondWindow extends JDialog {
     }
 
     private void onPopularMenu() {
-        // add your code here
+        PopularMenu popularMenu = new PopularMenu();
+        popularMenu.pack();
+        popularMenu.setVisible(true);
         dispose();
     }
 
