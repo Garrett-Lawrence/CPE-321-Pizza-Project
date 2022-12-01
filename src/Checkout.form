@@ -59,12 +59,12 @@
             <properties/>
             <border type="none" title="Total Price"/>
             <children>
-              <component id="f7d9c" class="javax.swing.JLabel">
+              <component id="5626d" class="javax.swing.JLabel" binding="priceLabel">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Price"/>
+                  <text value="Label"/>
                 </properties>
               </component>
             </children>
@@ -77,12 +77,12 @@
             <properties/>
             <border type="none" title="Pizza Count"/>
             <children>
-              <component id="63c3f" class="javax.swing.JLabel">
+              <component id="d7242" class="javax.swing.JLabel" binding="countLabel">
                 <constraints>
                   <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
-                  <text value="Count"/>
+                  <text value="Label"/>
                 </properties>
               </component>
             </children>

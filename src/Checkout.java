@@ -1,17 +1,14 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 
 public class Checkout extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton closeButton;
+    private JLabel priceLabel;
+    private JLabel countLabel;
 
     public Checkout() {
-        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-        int x = (int) (dimension.getWidth()/2);
-        int y = (int) (dimension.getHeight()/2);
-        this.setLocation(x-250,y-250);
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
