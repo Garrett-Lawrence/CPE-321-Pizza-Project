@@ -7,6 +7,7 @@ public class WelcomeWindow extends JDialog {
     private JButton buttonCancel;
 
     public WelcomeWindow() {
+        setLocationRelativeTo(null);
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);

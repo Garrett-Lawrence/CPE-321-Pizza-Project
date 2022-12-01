@@ -28,6 +28,7 @@ public class PopularMenu extends JDialog {
     private JButton addAnotherButton;
 
     public PopularMenu() {
+        setLocationRelativeTo(null);
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(checkoutButton);

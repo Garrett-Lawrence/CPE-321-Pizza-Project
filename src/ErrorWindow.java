@@ -7,6 +7,7 @@ public class ErrorWindow extends JDialog {
     private JButton buttonOK;
 
     public ErrorWindow() {
+        setLocationRelativeTo(null);
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);

@@ -7,6 +7,7 @@ public class Checkout extends JDialog {
     private JButton closeButton;
 
     public Checkout() {
+        setLocationRelativeTo(null);
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);

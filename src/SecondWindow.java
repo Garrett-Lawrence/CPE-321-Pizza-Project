@@ -7,6 +7,7 @@ public class SecondWindow extends JDialog {
     private JButton buttonCustomMenu;
 
     public SecondWindow() {
+        setLocationRelativeTo(null);
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonPopularMenu);

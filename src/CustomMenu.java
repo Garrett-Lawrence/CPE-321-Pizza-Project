@@ -25,6 +25,7 @@ public class CustomMenu extends JDialog {
     private JButton addAnotherButton;
 
     public CustomMenu() {
+        setLocationRelativeTo(null);
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonCheckout);
