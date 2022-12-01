@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-
+/*
 public class PopularMenu extends JDialog {
     private JPanel panel1;
     private JScrollBar scrollBar1;
@@ -46,4 +46,4 @@ public class PopularMenu extends JDialog {
 
     }
 }
-
+*/

@@ -1,5 +1,11 @@
 import javax.swing.*;
 import java.awt.event.*;
+import java.beans.XMLDecoder;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 public class PopularMenu extends JDialog {
     private JPanel contentPane;
@@ -19,6 +25,12 @@ public class PopularMenu extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
+
+        // Grouped all 9 buttons together so that only one can be clicked at a time
+        ButtonGroup group = new ButtonGroup();
+        group.add(smallRadioButton); group.add(mediumRadioButton); group.add(largeRadioButton);
+        group.add(smallRadioButton1); group.add(mediumRadioButton1); group.add(largeRadioButton1);
+        group.add(smallRadioButton2); group.add(mediumRadioButton2); group.add(largeRadioButton2);
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -57,4 +69,37 @@ public class PopularMenu extends JDialog {
         // add your code here if necessary
         dispose();
     }
+
+    public void getPopularToppings() {
+        // loop through lines in the xml file for i, then within for j, have a count for either how many times the same
+        // topping appears or how many times the same pizza (combo of toppings) appears top 3 choices will be picked
+        // as most popular pizzas somehow add these choices to the popular menu 1,2, and 3 Jpanels.
+        // based on a condition in this function, display dialog boxes to the panels on the form
+        File folder = new File("/pastPizzas");
+        File[] listOfFiles = folder.listFiles();
+        ArrayList<Pizza> oldPizzas = new ArrayList<>();
+
+        for (File file : listOfFiles) {
+            if (file.isFile()) {
+                XMLDecoder decoder=null;
+                try {
+                    decoder=new XMLDecoder(new BufferedInputStream(new FileInputStream(file)));
+                } catch (FileNotFoundException e) {
+                    System.out.println("ERROR: xml not found");
+                }
+                oldPizzas.add((Pizza) decoder.readObject());
+            }
+        }
+
+        //TODO for loop here to parse through the list of objects oldPizzas and find popular toppings
+
+    }
+
+    public static void main(String[] args) {
+        PopularMenu dialog = new PopularMenu();
+        dialog.pack();
+        dialog.setVisible(true);
+        System.exit(0);
+    }
+
 }
