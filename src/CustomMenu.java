@@ -22,4 +22,7 @@ public class CustomMenu {
     private JCheckBox tomatoesCheckBox;
     private JCheckBox extraCheeseCheckBox;
     private JCheckBox onionsCheckBox;
+
+    public CustomMenu() {
+    }
 }
