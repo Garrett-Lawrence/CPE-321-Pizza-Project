@@ -1,4 +1,10 @@
 import javax.swing.*;
+import java.beans.XMLDecoder;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 public class PopularMenu {
     private JPanel panel1;
@@ -20,6 +26,24 @@ public class PopularMenu {
         // top 3 choices will be picked as most popular pizzas
         // somehow add these choices to the popular menu 1,2, and 3 Jpanels.
         // based on a condition in this function, display dialog boxes to the panels on the form
+        File folder = new File("/pastPizzas");
+        File[] listOfFiles = folder.listFiles();
+        ArrayList<Pizza> oldPizzas = new ArrayList<>();
+
+        for (File file : listOfFiles) {
+            if (file.isFile()) {
+                XMLDecoder decoder=null;
+                try {
+                    decoder=new XMLDecoder(new BufferedInputStream(new FileInputStream(file)));
+                } catch (FileNotFoundException e) {
+                    System.out.println("ERROR: xml not found");
+                }
+               oldPizzas.add((Pizza) decoder.readObject());
+            }
+        }
+
+        //TODO for loop here to parse through the list of objects oldPizzas and find popular toppings
+
     }
 }
 

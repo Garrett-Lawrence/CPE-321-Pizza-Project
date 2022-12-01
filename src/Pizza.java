@@ -2,6 +2,13 @@
  * Pizza contains toppings, crust, sizes, sauces
  * that can be added/removed for Customers order.
  */
+
+ import java.beans.XMLEncoder;
+ import java.beans.XMLDecoder;
+ import java.io.BufferedOutputStream;
+ import java.io.FileNotFoundException;
+ import java.io.FileOutputStream;
+
 public class Pizza {
     private ToppingsList pizzaToppings;
     private Crust pizzaCrust;
@@ -41,4 +48,16 @@ public class Pizza {
     public void removeTopping(Topping topping){
         pizzaToppings.remove(topping);
     }
+
+    public void storeToXml(String fileName){
+        XMLEncoder encoder=null;
+        try{
+            encoder=new XMLEncoder(new BufferedOutputStream(new FileOutputStream(fileName)));
+        }catch(FileNotFoundException fileNotFound){
+            System.out.println("ERROR: While Creating or Opening the File");
+        }
+        encoder.writeObject(this);
+        encoder.close();
+    }
+
 }
