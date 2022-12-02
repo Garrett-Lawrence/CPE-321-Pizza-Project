@@ -29,7 +29,7 @@ public class CustomMenu extends JDialog {
     private JButton addAnotherButton;
 
     // creating new instance of ToppingsList
-    private ToppingsList toppingsList = new ToppingsList();
+
 
     // instances of crust, sauce, size, and Pizza
     private Crust crust;
@@ -37,7 +37,7 @@ public class CustomMenu extends JDialog {
     private Size size;
     private Pizza customPizza;
     private Order currentOrder;
-
+    private ToppingsList toppingsList;
     // constructor for actually creating the custom menu
     public CustomMenu(Order order) {
         this.currentOrder = order;
@@ -102,6 +102,7 @@ public class CustomMenu extends JDialog {
     }
 
     private void onCheckout() {
+        toppingsList = new ToppingsList();
         boolean sizeCheck = true;
         boolean crustCheck = true;
         boolean sauceCheck = true;
@@ -144,7 +145,7 @@ public class CustomMenu extends JDialog {
         }
 
         // ensuring that this if, else if, else structure are linked together
-        if (true) {
+//        if (true) {
             // depending on what size button is selected, create a new instance of Size
             if (smallRadioButton.isSelected()) {
                 size = new Size("Small");
@@ -155,8 +156,8 @@ public class CustomMenu extends JDialog {
             } else {
                 sizeCheck = false;
             }
-        }
-        if (true) {
+//        }
+//        if (true) {
             // depending on what crust button is selected, create a new instance of Crust
 
             if (originalCrustButton.isSelected()) {
@@ -168,8 +169,8 @@ public class CustomMenu extends JDialog {
             } else {
                 crustCheck = false;
             }
-        }
-        if (true) {
+//        }
+//        if (true) {
             // depending on what sauce button is selected, create a new instance of Sauce
 
             if (originalSauceButton.isSelected()) {
@@ -179,13 +180,17 @@ public class CustomMenu extends JDialog {
             } else {
                 sauceCheck = false;
             }
-        }
+//        }
 
         // if sauce and crust and size were selected
         if (sauceCheck == true && crustCheck == true && sizeCheck == true) {
 
             // create new pizza with the previously established attributes
             customPizza = new Pizza(toppingsList, crust, sauce, size);
+
+            currentOrder.addPizzaToOrder(customPizza);
+
+            customPizza.storeToXml();
 
             //close out of custom menu
             dispose();
@@ -204,6 +209,7 @@ public class CustomMenu extends JDialog {
     }
 
     private void onAddAnother() {
+        toppingsList = new ToppingsList();
         boolean sizeCheck = true;
         boolean crustCheck = true;
         boolean sauceCheck = true;
@@ -290,6 +296,10 @@ public class CustomMenu extends JDialog {
 
             // create new pizza with the previously established attributes
             customPizza = new Pizza(toppingsList, crust, sauce, size);
+
+            currentOrder.addPizzaToOrder(customPizza);
+
+            customPizza.storeToXml();
 
             // close window
             dispose();

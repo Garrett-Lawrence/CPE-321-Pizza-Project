@@ -29,10 +29,15 @@ public class Order {
         double sum = 0;
         // loops through each item in pizza list and adds together the prices
         for (int i = 0; i < this.pizzaList.size(); i++){
-            sum += this.pizzaList.get(i).getPizzaPrice();
+//            sum += this.pizzaList.get(i).getPizzaPrice();
+            sum += getPizzaPrice(this.pizzaList.get(i));
         }
         this.orderPrice = sum;
         return sum;
     }
-
+    public double getPizzaPrice(Pizza pizza){
+        double pizzaPrice = pizza.getPizzaToppings().getToppingsPrice() + pizza.getPizzaCrust().getCrustPrice()+ pizza.getPizzaSauce().getSaucePrice() + pizza.getPizzaSize().getSizePrice();
+        System.out.println(pizzaPrice);
+        return pizzaPrice;
+    }
 }

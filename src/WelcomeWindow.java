@@ -8,6 +8,7 @@ public class WelcomeWindow extends JDialog {
     private JButton buttonCancel;
 
     public WelcomeWindow() {
+
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) (dimension.getWidth()/2);
         int y = (int) (dimension.getHeight()/2);

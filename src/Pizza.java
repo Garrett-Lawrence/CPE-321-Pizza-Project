@@ -5,19 +5,22 @@
 
  import java.beans.XMLEncoder;
  import java.beans.XMLDecoder;
- import java.io.BufferedOutputStream;
- import java.io.FileNotFoundException;
- import java.io.FileOutputStream;
+ import java.io.*;
 
-public class Pizza {
+public class Pizza implements Serializable {
+
+
     private ToppingsList pizzaToppings;
     private Crust pizzaCrust;
     private Size pizzaSize;
     private Sauce pizzaSauce;
-    private double pizzaPrice;
+
+    
     /**
      * Constructor Pizza
      */
+    public Pizza(){
+    }
     public Pizza(ToppingsList toppings, Crust crust, Sauce sauce, Size size){
         pizzaToppings = toppings;
         pizzaCrust = crust;
@@ -25,10 +28,20 @@ public class Pizza {
         pizzaSize = size;
     }
 
-    public double getPizzaPrice(){
-        pizzaPrice = this.pizzaToppings.getToppingsPrice() + this.pizzaCrust.getCrustPrice() +
-                this.pizzaSauce.getSaucePrice() + this.pizzaSize.getSizePrice();
-        return pizzaPrice;
+    public void setPizzaToppings(ToppingsList pizzaToppings) {
+        this.pizzaToppings = pizzaToppings;
+    }
+
+    public void setPizzaCrust(Crust pizzaCrust) {
+        this.pizzaCrust = pizzaCrust;
+    }
+
+    public void setPizzaSize(Size pizzaSize) {
+        this.pizzaSize = pizzaSize;
+    }
+
+    public void setPizzaSauce(Sauce pizzaSauce) {
+        this.pizzaSauce = pizzaSauce;
     }
 
     public ToppingsList getPizzaToppings() {
@@ -42,6 +55,13 @@ public class Pizza {
     public Sauce getPizzaSauce() {
         return this.pizzaSauce;
     }
+
+    public Size getPizzaSize() { return this.pizzaSize; }
+
+
+
+
+
 
     public void changeItem(String itemType, String newItem, double price) {
         if (itemType == "Crust"){
@@ -61,12 +81,18 @@ public class Pizza {
         pizzaToppings.remove(topping);
     }
 
-    public void storeToXml(String fileName){
+    public void storeToXml(){
+        String fileName = String.valueOf(System.currentTimeMillis()) +".xml";
+        System.out.println(fileName);
         XMLEncoder encoder=null;
         try{
-            encoder=new XMLEncoder(new BufferedOutputStream(new FileOutputStream(fileName)));
+            File file = new File("src/pastPizzas/"+fileName);
+            file.createNewFile();
+            encoder=new XMLEncoder(new BufferedOutputStream(new FileOutputStream(file)));
         }catch(FileNotFoundException fileNotFound){
-            System.out.println("ERROR: While Creating or Opening the File");
+            System.out.println("ERROR: Initializing encoder");
+        } catch (IOException e) {
+            System.out.print("ERROR: Creating new File");
         }
         encoder.writeObject(this);
         encoder.close();
