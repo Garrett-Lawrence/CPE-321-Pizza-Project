@@ -1,4 +1,6 @@
-
+/**
+ * Size class that stores possible sizes and allows you to getSizePrice
+ */
 public class Size {     // Size class to manage price according to chosen size
     private String size;
     private double sizePrice;
