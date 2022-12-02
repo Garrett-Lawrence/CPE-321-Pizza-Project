@@ -45,7 +45,8 @@ public class WelcomeWindow extends JDialog {
     }
 
     private void onStartOrder() {
-        SecondWindow secondWindow = new SecondWindow();
+        Order order  = new Order();
+        SecondWindow secondWindow = new SecondWindow(order);
         secondWindow.pack();
         secondWindow.setVisible(true);
         dispose();

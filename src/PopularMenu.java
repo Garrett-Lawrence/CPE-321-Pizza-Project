@@ -31,8 +31,10 @@ public class PopularMenu extends JDialog {
     private JRadioButton largeRadioButton2;
     private JRadioButton mediumRadioButton2;
     private JButton addAnotherButton;
+    private Order currentOrder;
 
-    public PopularMenu() {
+    public PopularMenu(Order order) {
+        this.currentOrder = order;
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) (dimension.getWidth()/2);
         int y = (int) (dimension.getHeight()/2);
@@ -182,7 +184,7 @@ public class PopularMenu extends JDialog {
         }
         if (check == true) {
             dispose();
-            SecondWindow secondWindow = new SecondWindow();
+            SecondWindow secondWindow = new SecondWindow(currentOrder);
             secondWindow.pack();
             secondWindow.setVisible(true);
         }
@@ -190,7 +192,7 @@ public class PopularMenu extends JDialog {
 
     private void onCancel() {
         dispose();
-        SecondWindow secondWindow = new SecondWindow();
+        SecondWindow secondWindow = new SecondWindow(currentOrder);
         secondWindow.pack();
         secondWindow.setVisible(true);
     }

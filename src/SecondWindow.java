@@ -14,10 +14,11 @@ public class SecondWindow extends JDialog {
     private JButton buttonCustomMenu;
 
     // creating instance of Order for currentOrder
-    public Order currentOrder;
+    private Order currentOrder;
 
     // constructor for SecondWindow that creates the window
-    public SecondWindow() {
+    public SecondWindow(Order order) {
+        this.currentOrder=order;
         // set up and sizing of window
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) (dimension.getWidth()/2);
@@ -59,7 +60,7 @@ public class SecondWindow extends JDialog {
 
     // takes you to Popular Menu window
     private void onPopularMenu() {
-        PopularMenu popularMenu = new PopularMenu();
+        PopularMenu popularMenu = new PopularMenu(currentOrder);
         popularMenu.pack();
         popularMenu.setVisible(true);
         // closes out of Second window
@@ -68,7 +69,7 @@ public class SecondWindow extends JDialog {
 
     // takes you to Custom Menu window
     private void onCustomMenu() {
-        CustomMenu customMenu = new CustomMenu();
+        CustomMenu customMenu = new CustomMenu(currentOrder);
         customMenu.pack();
         customMenu.setVisible(true);
         // closes out of Second Window

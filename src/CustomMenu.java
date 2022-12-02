@@ -36,9 +36,11 @@ public class CustomMenu extends JDialog {
     private Sauce sauce;
     private Size size;
     private Pizza customPizza;
+    private Order currentOrder;
 
     // constructor for actually creating the custom menu
-    public CustomMenu() {
+    public CustomMenu(Order order) {
+        this.currentOrder = order;
         // Set-up and sizing of window
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) (dimension.getWidth()/2);
@@ -293,7 +295,7 @@ public class CustomMenu extends JDialog {
             dispose();
 
             // open secondWindow
-            SecondWindow secondWindow = new SecondWindow();
+            SecondWindow secondWindow = new SecondWindow(currentOrder);
             secondWindow.pack();
             secondWindow.setVisible(true);
         }
@@ -311,7 +313,7 @@ public class CustomMenu extends JDialog {
         dispose();
 
         //opening second window
-        SecondWindow secondWindow = new SecondWindow();
+        SecondWindow secondWindow = new SecondWindow(currentOrder);
         secondWindow.pack();
         secondWindow.setVisible(true);
     }
