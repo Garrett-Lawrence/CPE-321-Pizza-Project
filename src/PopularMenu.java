@@ -1,3 +1,7 @@
+/**
+ * Popular Menu Window class opens up the popular window display that allows user to pick a popular pizza to order
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -9,7 +13,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class PopularMenu extends JDialog {          // popularmenu inherits from jdialog
+public class PopularMenu extends JDialog {
     private Pizza popularPizza1;
     private Pizza popularPizza2;
     private Pizza popularPizza3;
@@ -28,8 +32,8 @@ public class PopularMenu extends JDialog {          // popularmenu inherits from
     private JRadioButton mediumRadioButton2;
     private JButton addAnotherButton;
 
-    public PopularMenu() {                                                  // constructor that initialzies the GUI
-        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();  // calls default methods
+    public PopularMenu() {
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) (dimension.getWidth()/2);
         int y = (int) (dimension.getHeight()/2);
         this.setLocation(x-250,y-250);
@@ -49,7 +53,7 @@ public class PopularMenu extends JDialog {          // popularmenu inherits from
             public void actionPerformed(ActionEvent e) {
                 onCheckout();
             }
-        });                                                                 // all possible actions
+        });
 
         addAnotherButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -80,7 +84,7 @@ public class PopularMenu extends JDialog {          // popularmenu inherits from
 
     }
 
-    private void onCheckout() {                             // function that does not return anything. class only invoked when in a certain state in the program.
+    private void onCheckout() {
         boolean check = true;
         if (smallRadioButton.isSelected()) {
             //pizza = new Pizza(popularPizza1.getPizzaToppings(), popularPizza1.getPizzaCrust(),
@@ -120,8 +124,8 @@ public class PopularMenu extends JDialog {          // popularmenu inherits from
         }
         else {
             check = false;
-            ErrorWindow errorWindow = new ErrorWindow();                // if none of the buttons were selected and continued to check out
-            errorWindow.pack();                                         // would show error window
+            ErrorWindow errorWindow = new ErrorWindow();
+            errorWindow.pack();
             errorWindow.setVisible(true);
         }
         if (check == true) {
@@ -132,7 +136,7 @@ public class PopularMenu extends JDialog {          // popularmenu inherits from
         }
     }
 
-    private void onAddAnother() {                           // void function that is invoked when state of program is changed
+    private void onAddAnother() {
         boolean check = true;
         if (smallRadioButton.isSelected()) {
             //pizza = new Pizza(popularPizza1.getPizzaToppings(), popularPizza1.getPizzaCrust(),
@@ -184,7 +188,7 @@ public class PopularMenu extends JDialog {          // popularmenu inherits from
         }
     }
 
-    private void onCancel() {                           // if cancel button is checked, current window is disposed of
+    private void onCancel() {
         dispose();
         SecondWindow secondWindow = new SecondWindow();
         secondWindow.pack();
@@ -192,7 +196,10 @@ public class PopularMenu extends JDialog {          // popularmenu inherits from
     }
 
     public void getPopularToppings() {
-
+        // loop through lines in the xml file for i, then within for j, have a count for either how many times the same
+        // topping appears or how many times the same pizza (combo of toppings) appears top 3 choices will be picked
+        // as most popular pizzas somehow add these choices to the popular menu 1,2, and 3 Jpanels.
+        // based on a condition in this function, display dialog boxes to the panels on the form
         File folder = new File("/pastPizzas");
         File[] listOfFiles = folder.listFiles();
         ArrayList<Pizza> oldPizzas = new ArrayList<>();
