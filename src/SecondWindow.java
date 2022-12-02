@@ -1,14 +1,24 @@
+/**
+ * Second Window class opens up the second window display that asks the user to either order a popular pizza
+ * or a custom pizza
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class SecondWindow extends JDialog {
+
+    // creating panels and buttons
     private JPanel contentPane;
     private JButton buttonPopularMenu;
     private JButton buttonCustomMenu;
+
+    // creating instance of Order for currentOrder
     public Order currentOrder;
 
+    // constructor for SecondWindow that creates the window
     public SecondWindow() {
+        // set up and sizing of window
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) (dimension.getWidth()/2);
         int y = (int) (dimension.getHeight()/2);
@@ -17,12 +27,14 @@ public class SecondWindow extends JDialog {
         setModal(true);
         getRootPane().setDefaultButton(buttonPopularMenu);
 
+        // if popular button is pressed, then call onPopularMenu functiojn
         buttonPopularMenu.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onPopularMenu();
             }
         });
 
+        // if custom menu button is pressed, then call onCustomMenu function
         buttonCustomMenu.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 onCustomMenu();
@@ -45,21 +57,26 @@ public class SecondWindow extends JDialog {
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
+    // takes you to Popular Menu window
     private void onPopularMenu() {
         PopularMenu popularMenu = new PopularMenu();
         popularMenu.pack();
         popularMenu.setVisible(true);
+        // closes out of Second window
         dispose();
     }
 
+    // takes you to Custom Menu window
     private void onCustomMenu() {
         CustomMenu customMenu = new CustomMenu();
         customMenu.pack();
         customMenu.setVisible(true);
+        // closes out of Second Window
         dispose();
     }
+
+    // closes out of Second Window
     private void onCancel() {
-        // add your code here if necessary
         dispose();
     }
 }
