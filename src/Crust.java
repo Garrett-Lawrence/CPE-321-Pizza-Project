@@ -5,12 +5,12 @@ public class Crust {
     // Crust Class
     private String crustName;
     private double crustPrice;
-    public Crust(String name, double price){
-        crustName = name;
+    public Crust(String name, double price){                // Constructor that initializes the crustName and crustPrice variables
+        crustName = name;                                   // Takes input string Name and price double
         crustPrice = price;
     }
 
     public double getCrustPrice(){
         return crustPrice;
-    }
+    }    // Function to return crust price
 }
