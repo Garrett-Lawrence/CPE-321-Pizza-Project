@@ -167,6 +167,7 @@ public class CustomMenu extends JDialog {
             errorWindow.setVisible(true);
         }
         if (sauceCheck == true && crustCheck == true && sizeCheck == true) {
+            customPizza = new Pizza(toppingsList, crust, sauce, size);
             dispose();
             Checkout checkout = new Checkout();
             checkout.pack();
