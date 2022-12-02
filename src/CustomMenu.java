@@ -133,9 +133,6 @@ public class CustomMenu extends JDialog {
                 size = new Size("Large");
             } else {
                 sizeCheck = false;
-                ErrorWindow errorWindow = new ErrorWindow();
-                errorWindow.pack();
-                errorWindow.setVisible(true);
             }
         }
         if (true) {
@@ -147,9 +144,6 @@ public class CustomMenu extends JDialog {
                 crust = new Crust("Garlic", 1.00);
             } else {
                 crustCheck = false;
-                ErrorWindow errorWindow = new ErrorWindow();
-                errorWindow.pack();
-                errorWindow.setVisible(true);
             }
         }
         if (true) {
@@ -159,9 +153,6 @@ public class CustomMenu extends JDialog {
                 sauce = new Sauce("Olive Oil", 0.25);
             } else {
                 sauceCheck = false;
-                ErrorWindow errorWindow = new ErrorWindow();
-                errorWindow.pack();
-                errorWindow.setVisible(true);
             }
         }
         if (sauceCheck == true && crustCheck == true && sizeCheck == true) {
@@ -170,6 +161,11 @@ public class CustomMenu extends JDialog {
             Checkout checkout = new Checkout();
             checkout.pack();
             checkout.setVisible(true);
+        }
+        else {
+            ErrorWindow errorWindow = new ErrorWindow();
+            errorWindow.pack();
+            errorWindow.setVisible(true);
         }
     }
 
@@ -224,9 +220,6 @@ public class CustomMenu extends JDialog {
         }
         else {
             sizeCheck = false;
-            ErrorWindow errorWindow = new ErrorWindow();
-            errorWindow.pack();
-            errorWindow.setVisible(true);
         }
         if (originalCrustButton.isSelected()) {
             crust = new Crust("Original", 0.0);
@@ -239,9 +232,6 @@ public class CustomMenu extends JDialog {
         }
         else {
             crustCheck = false;
-            ErrorWindow errorWindow = new ErrorWindow();
-            errorWindow.pack();
-            errorWindow.setVisible(true);
         }
         if (originalSauceButton.isSelected()) {
             sauce = new Sauce("Original", 0.0);
@@ -251,9 +241,6 @@ public class CustomMenu extends JDialog {
         }
         else {
             sauceCheck =false;
-            ErrorWindow errorWindow = new ErrorWindow();
-            errorWindow.pack();
-            errorWindow.setVisible(true);
         }
         if (sauceCheck == true && crustCheck == true && sizeCheck == true) {
             customPizza = new Pizza(toppingsList, crust, sauce, size);
@@ -261,6 +248,11 @@ public class CustomMenu extends JDialog {
             SecondWindow secondWindow = new SecondWindow();
             secondWindow.pack();
             secondWindow.setVisible(true);
+        }
+        else {
+            ErrorWindow errorWindow = new ErrorWindow();
+            errorWindow.pack();
+            errorWindow.setVisible(true);
         }
     }
 
