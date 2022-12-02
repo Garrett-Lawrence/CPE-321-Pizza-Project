@@ -13,7 +13,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class PopularMenu extends JDialog {
+public class PopularMenu extends JDialog {              // popular menu inherits JDialog functionality
     private Pizza popularPizza1;
     private Pizza popularPizza2;
     private Pizza popularPizza3;
@@ -33,9 +33,10 @@ public class PopularMenu extends JDialog {
     private JButton addAnotherButton;
     private Order currentOrder;
 
-    public PopularMenu(Order order) {
-        this.currentOrder = order;
-        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+
+    public PopularMenu() {
+		this.currentOrder = order;
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();          // constructor sets up GUI, buttons, and logic
         int x = (int) (dimension.getWidth()/2);
         int y = (int) (dimension.getHeight()/2);
         this.setLocation(x-250,y-250);
@@ -138,7 +139,7 @@ public class PopularMenu extends JDialog {
         }
     }
 
-    private void onAddAnother() {
+    private void onAddAnother() {                   // adds another pizza
         boolean check = true;
         if (smallRadioButton.isSelected()) {
             //pizza = new Pizza(popularPizza1.getPizzaToppings(), popularPizza1.getPizzaCrust(),
@@ -178,11 +179,11 @@ public class PopularMenu extends JDialog {
         }
         else {
             check = false;
-            ErrorWindow errorWindow = new ErrorWindow();
+            ErrorWindow errorWindow = new ErrorWindow();        // if the check turns out false, the error window is created and shown
             errorWindow.pack();
             errorWindow.setVisible(true);
         }
-        if (check == true) {
+        if (check == true) {                                    // if check turns out false, close the current window and show second window
             dispose();
             SecondWindow secondWindow = new SecondWindow(currentOrder);
             secondWindow.pack();
@@ -190,7 +191,7 @@ public class PopularMenu extends JDialog {
         }
     }
 
-    private void onCancel() {
+    private void onCancel() {                               // if cancel box checked, dispose current window and open second window
         dispose();
         SecondWindow secondWindow = new SecondWindow(currentOrder);
         secondWindow.pack();
@@ -198,10 +199,7 @@ public class PopularMenu extends JDialog {
     }
 
     public void getPopularToppings() {
-        // loop through lines in the xml file for i, then within for j, have a count for either how many times the same
-        // topping appears or how many times the same pizza (combo of toppings) appears top 3 choices will be picked
-        // as most popular pizzas somehow add these choices to the popular menu 1,2, and 3 Jpanels.
-        // based on a condition in this function, display dialog boxes to the panels on the form
+
         File folder = new File("/pastPizzas");
         File[] listOfFiles = folder.listFiles();
         ArrayList<Pizza> oldPizzas = new ArrayList<>();
