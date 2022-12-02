@@ -34,7 +34,7 @@ public class PopularMenu extends JDialog {              // popular menu inherits
     private Order currentOrder;
 
 
-    public PopularMenu() {
+    public PopularMenu(Order order) {
 		this.currentOrder = order;
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();          // constructor sets up GUI, buttons, and logic
         int x = (int) (dimension.getWidth()/2);
