@@ -3,6 +3,9 @@ import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
+/**
+ * Menu contains hash tables about topping, crust, and sauce prices. It also includes the corresponding functions.
+ */
 public class Menu {
     public Dictionary<String,String> toppingPrices;
     public Dictionary<String,String> crustPrices;
