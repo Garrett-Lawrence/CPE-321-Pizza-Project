@@ -24,7 +24,7 @@ public class CustomMenu extends JDialog {
     private JRadioButton mediumRadioButton;
     private JRadioButton largeRadioButton;
     private JButton addAnotherButton;
-    private ToppingsList toppingsList;
+    private ToppingsList toppingsList = new ToppingsList();
     private Crust crust;
     private Sauce sauce;
     private Size size;
