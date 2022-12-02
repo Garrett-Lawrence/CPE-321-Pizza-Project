@@ -15,15 +15,20 @@ public class CustomMenu extends JDialog {
     private JCheckBox olivesCheckBox;
     private JCheckBox onionsCheckBox;
     private JCheckBox extraCheeseCheckBox;
-    private JRadioButton originalRadioButton1;
-    private JRadioButton stuffedRadioButton;
-    private JRadioButton garlicRadioButton;
-    private JRadioButton originalRadioButton;
-    private JRadioButton oliveOilRadioButton;
+    private JRadioButton originalCrustButton;
+    private JRadioButton stuffedCrustButton;
+    private JRadioButton garlicCrustButton;
+    private JRadioButton originalSauceButton;
+    private JRadioButton oliveOilSauceButton;
     private JRadioButton smallRadioButton;
     private JRadioButton mediumRadioButton;
     private JRadioButton largeRadioButton;
     private JButton addAnotherButton;
+    private ToppingsList toppingsList;
+    private Crust crust;
+    private Sauce sauce;
+    private Size size;
+    private Pizza customPizza;
 
     public CustomMenu() {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
@@ -33,6 +38,17 @@ public class CustomMenu extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonCheckout);
+
+        ButtonGroup groupSauce = new ButtonGroup();
+        groupSauce.add(originalSauceButton); groupSauce.add(oliveOilSauceButton);
+
+        ButtonGroup groupCrust = new ButtonGroup();
+        groupCrust.add(originalCrustButton); groupCrust.add(stuffedCrustButton);
+        groupCrust.add(garlicCrustButton);
+
+        ButtonGroup groupSize = new ButtonGroup();
+        groupSize.add(smallRadioButton); groupSize.add(mediumRadioButton);
+        groupSize.add(largeRadioButton);
 
         buttonCheckout.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -69,6 +85,46 @@ public class CustomMenu extends JDialog {
     }
 
     private void onCheckout() {
+        boolean sizeCheck = false;
+        boolean crustCheck = false;
+        boolean sauceCheck = false;
+        if (pepperoniCheckBox.isSelected()) {
+            Topping pepperoni = new Topping("Pepperoni", 0.30);
+            toppingsList.add(pepperoni);
+        }
+        if (sausageCheckBox.isSelected()) {
+            Topping sausage = new Topping("Sausage", 0.40);
+            toppingsList.add(sausage);
+        }
+        if (tomatoesCheckBox.isSelected()) {
+            Topping tomato = new Topping("Tomatoes", 0.10);
+            toppingsList.add(tomato);
+        }
+        if (peppersCheckBox.isSelected()) {
+            Topping peppers = new Topping("Green Peppers", 0.20);
+            toppingsList.add(peppers);
+        }
+        if (pineappleCheckBox.isSelected()) {
+            Topping pineapple = new Topping("Pineapple", 0.30);
+            toppingsList.add(pineapple);
+        }
+        if (mushroomCheckBox.isSelected()) {
+            Topping mushroom = new Topping("Mushrooms", 0.30);
+            toppingsList.add(mushroom);
+        }
+        if (olivesCheckBox.isSelected()) {
+            Topping olives = new Topping("Olives", 0.15);
+            toppingsList.add(olives);
+        }
+        if (onionsCheckBox.isSelected()) {
+            Topping onions = new Topping("Onions", );
+            toppingsList.add(onions);
+        }
+        if (extraCheeseCheckBox.isSelected()) {
+            Topping cheese = new Topping("Cheese", );
+            toppingsList.add(cheese);
+        }
+
         dispose();
         Checkout checkout = new Checkout();
         checkout.pack();
