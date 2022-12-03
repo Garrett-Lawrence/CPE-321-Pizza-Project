@@ -13,9 +13,9 @@ Once Start Order is clicked, the Second Window will pop up.
 You have 3 choices: Popular Menu, Custom Menu, or the top right x.
 To exit the program, click the top right x.
 
-Clicking Popular Menu opens up the Popular Menu Window which allows you to chose from 3 of the most popular...
+Clicking Popular Menu opens up the Popular Menu Window which allows you to choose from 3 of the most popular
 pizzas based on previously saved pizzas stored in xml files.
-After clicking on one of the Select buttons (you can only choose one), you can either click on Checkout,
+After clicking on one of the Select buttons (you can only choose one pizza), you can either click on Checkout,
 Add Another, Cancel, or the top right x. 
 Clicking top right x will exit the program.
 Clicking Checkout will bring you to the checkout menu.
@@ -23,8 +23,8 @@ Clicking AddAnother will take you back to the Second Window.
 Clicking Cancel will exit out of the PopularMenu window. 
 
 From the SecondWindow, clicking Custom Menu will open the Custom Menu window. 
-Here you can choose the size, sauce, and crust you want. You can only chose one of each from these options.
-You can check as many toppings as you want or you can check no toppings. 
+Here you can choose the size, sauce, and crust you want. You can only choose one of each from these options.
+You can check as many toppings as you want or you can check no toppings.
 When done adding components of the pizza, you can either click on Checkout,
 Add Another, Cancel, or the top right x.
 Clicking top right x will exit the program.
