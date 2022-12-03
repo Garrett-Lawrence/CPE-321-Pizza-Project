@@ -46,6 +46,7 @@ public class Checkout extends JDialog {
 //            JLabel pizzaLabel = new JLabel(pizza.getPizzaText());
             JTextArea pizzaTA = new JTextArea(pizza.getPizzaText());
             pizzaTA.setEditable(false);
+            String price = String.valueOf(order.getPizzaPrice(pizza));
             JTextArea priceLabel = new  JTextArea(String.valueOf(order.getPizzaPrice(pizza)));
             priceLabel.setEditable(false);
             pizzasPanel.add(pizzaTA);

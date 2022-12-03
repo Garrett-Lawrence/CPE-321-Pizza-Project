@@ -11,6 +11,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Objects;
 
 public class PopularMenu extends JDialog {              // popular menu inherits JDialog functionality
@@ -176,11 +178,33 @@ public class PopularMenu extends JDialog {              // popular menu inherits
 
         //TODO for loop here to parse through the list of objects oldPizzas and find popular toppings
         ArrayList<Pizza> popularPizzas = new ArrayList<>();
-        for(int i=0; i<3; i++){
-            popularPizzas.add(oldPizzas.get(i));
+        ArrayList<Pizza> proxyPizzas = new ArrayList<>();
+        ArrayList<Integer> counts = new ArrayList<>();
+        proxyPizzas.add(oldPizzas.get(0));
+
+        for(int i=1; i<oldPizzas.size(); i++){
+            int z=proxyPizzas.size();
+            for(int j=0; j<z; j++){
+                if(oldPizzas.get(i).getPizzaText().equals(proxyPizzas.get(j).getPizzaText())){
+                    counts.add(j,counts.get(j)+1);
+                }
+                else{
+                    proxyPizzas.add(oldPizzas.get(i));
+                    counts.add(1);
+                    break;
+                }
+
+            }
+
+        }
+        System.out.println(proxyPizzas.toString());
+
+        for(int i=0; i<3; i++) {
+            popularPizzas.add(proxyPizzas.get(counts.indexOf(Collections.max(counts))));
+            proxyPizzas.remove(counts.indexOf(Collections.max(counts)));
+            counts.remove(counts.indexOf(Collections.max(counts)));
         }
         return popularPizzas;
-
     }
 
 }

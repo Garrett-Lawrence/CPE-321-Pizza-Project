@@ -40,11 +40,17 @@ public class Order {
             sum += getPizzaPrice(this.pizzaList.get(i));
         }
         this.orderPrice = sum;
+        orderPrice = orderPrice* Math.pow(10, 2);
+        orderPrice = Math.floor(orderPrice);
+        orderPrice = orderPrice / Math.pow(10, 2);
         return sum;
     }
     public double getPizzaPrice(Pizza pizza){
         double pizzaPrice = pizza.getPizzaToppings().getToppingsPrice() + pizza.getPizzaCrust().getCrustPrice()+ pizza.getPizzaSauce().getSaucePrice() + pizza.getPizzaSize().getSizePrice();
         System.out.println(pizzaPrice);
+        pizzaPrice = pizzaPrice* Math.pow(10, 2);
+        pizzaPrice = Math.floor(pizzaPrice);
+        pizzaPrice = pizzaPrice / Math.pow(10, 2);
         return pizzaPrice;
     }
 }
