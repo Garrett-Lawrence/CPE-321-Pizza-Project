@@ -197,7 +197,6 @@ public class PopularMenu extends JDialog {              // popular menu inherits
             }
 
         }
-        System.out.println(proxyPizzas.toString());
 
         for(int i=0; i<3; i++) {
             popularPizzas.add(proxyPizzas.get(counts.indexOf(Collections.max(counts))));
