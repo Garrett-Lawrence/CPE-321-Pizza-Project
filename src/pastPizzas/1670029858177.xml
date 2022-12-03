@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="19.0.1" class="java.beans.XMLDecoder">
+ <object class="Pizza">
+  <void property="pizzaCrust">
+   <object class="Crust">
+    <void property="crustName">
+     <string>Original</string>
+    </void>
+   </object>
+  </void>
+  <void property="pizzaSauce">
+   <object class="Sauce">
+    <void property="sauceName">
+     <string>Olive Oil</string>
+    </void>
+    <void property="saucePrice">
+     <double>0.25</double>
+    </void>
+   </object>
+  </void>
+  <void property="pizzaSize">
+   <object class="Size">
+    <void property="size">
+     <string>Medium</string>
+    </void>
+    <void property="sizePrice">
+     <double>12.5</double>
+    </void>
+   </object>
+  </void>
+  <void property="pizzaToppings">
+   <object class="ToppingsList" id="ToppingsList0">
+    <void property="toppingsList">
+     <void method="add">
+      <object class="Topping">
+       <void property="toppingName">
+        <string>Pepperoni</string>
+       </void>
+       <void property="toppingPrice">
+        <double>0.5</double>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="Topping">
+       <void property="toppingName">
+        <string>Sausage</string>
+       </void>
+       <void property="toppingPrice">
+        <double>0.4</double>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="Topping">
+       <void property="toppingName">
+        <string>Tomatoes</string>
+       </void>
+       <void property="toppingPrice">
+        <double>0.1</double>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="Topping">
+       <void property="toppingName">
+        <string>Green Peppers</string>
+       </void>
+       <void property="toppingPrice">
+        <double>0.2</double>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="Topping">
+       <void property="toppingName">
+        <string>Pineapple</string>
+       </void>
+       <void property="toppingPrice">
+        <double>0.3</double>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="Topping">
+       <void property="toppingName">
+        <string>Mushrooms</string>
+       </void>
+       <void property="toppingPrice">
+        <double>0.3</double>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="Topping">
+       <void property="toppingName">
+        <string>Olives</string>
+       </void>
+       <void property="toppingPrice">
+        <double>0.15</double>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="Topping">
+       <void property="toppingName">
+        <string>Onions</string>
+       </void>
+       <void property="toppingPrice">
+        <double>0.25</double>
+       </void>
+      </object>
+     </void>
+     <void method="add">
+      <object class="Topping">
+       <void property="toppingName">
+        <string>Cheese</string>
+       </void>
+       <void property="toppingPrice">
+        <double>0.4</double>
+       </void>
+      </object>
+     </void>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

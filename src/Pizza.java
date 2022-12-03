@@ -100,7 +100,7 @@ public class Pizza implements Serializable {
         }
 
         return pizzaSize.getSize() + " " + pizzaCrust.getCrustName() + " crust pizza with " + pizzaSauce.getSauceName()
-                + " sauce" + toppingsString;
+                + " sauce\n" + toppingsString;
 
 
     }

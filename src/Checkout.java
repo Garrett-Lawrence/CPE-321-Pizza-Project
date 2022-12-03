@@ -6,14 +6,14 @@ public class Checkout extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton closeButton;
-    private JLabel priceLabel;
-    private JLabel countLabel;
+    private JPanel totalPricePanel;
+    private JPanel pizzasPanel;
 
-    public Checkout() {
+    public Checkout(Order order) {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) (dimension.getWidth()/2);
         int y = (int) (dimension.getHeight()/2);
-        this.setLocation(x-250,y-250);
+        this.setLocation(x-450,y-250);
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
@@ -38,6 +38,26 @@ public class Checkout extends JDialog {
                 onCancel();
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+
+        pizzasPanel.setLayout(new GridLayout(order.getPizzaListSize()+1,1));
+        totalPricePanel.setLayout(new GridLayout(order.getPizzaListSize()+1,1));
+        for(int i = 0; i < order.getPizzaListSize(); i++){
+            Pizza pizza = order.getPizzaList().get(i);
+//            JLabel pizzaLabel = new JLabel(pizza.getPizzaText());
+            JTextArea pizzaTA = new JTextArea(pizza.getPizzaText());
+            pizzaTA.setEditable(false);
+            JTextArea priceLabel = new  JTextArea(String.valueOf(order.getPizzaPrice(pizza)));
+            priceLabel.setEditable(false);
+            pizzasPanel.add(pizzaTA);
+            totalPricePanel.add(priceLabel);
+        }
+        JTextArea empty = new JTextArea("\t\t");
+        empty.setEditable(false);
+        pizzasPanel.add(empty);
+        JTextArea priceLabel = new JTextArea("Total price: " + String.valueOf(order.getOrderPrice()));
+        priceLabel.setEditable(false);
+        totalPricePanel.add(priceLabel);
+
     }
 
     private void onCancel() {

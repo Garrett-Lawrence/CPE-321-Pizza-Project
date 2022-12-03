@@ -36,7 +36,7 @@ public class PopularMenu extends JDialog {              // popular menu inherits
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();          // constructor sets up GUI, buttons, and logic
         int x = (int) (dimension.getWidth()/2);
         int y = (int) (dimension.getHeight()/2);
-        this.setLocation(x-250,y-250);
+        this.setLocation(x-450,y-250);
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(checkoutButton);
@@ -113,7 +113,7 @@ public class PopularMenu extends JDialog {              // popular menu inherits
             pizza.storeToXml();
             currentOrder.addPizzaToOrder(pizza);
             dispose();
-            Checkout checkout = new Checkout();
+            Checkout checkout = new Checkout(currentOrder);
             checkout.pack();
             checkout.setVisible(true);
         }

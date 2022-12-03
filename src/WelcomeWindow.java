@@ -17,7 +17,7 @@ public class WelcomeWindow extends JDialog {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) (dimension.getWidth()/2);
         int y = (int) (dimension.getHeight()/2);
-        this.setLocation(x-250,y-250);
+        this.setLocation(x-450,y-250);
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);

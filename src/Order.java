@@ -6,6 +6,7 @@ public class Order {
 
     // array to hold list of pizzas in order
     private ArrayList<Pizza> pizzaList;
+
     // total order price
     private double orderPrice;
 
@@ -17,6 +18,12 @@ public class Order {
     // add Pizza to the pizzaList
     public void addPizzaToOrder(Pizza newPizza){
         this.pizzaList.add(newPizza);
+    }
+    public int getPizzaListSize() {
+        return pizzaList.size();
+    }
+    public ArrayList<Pizza> getPizzaList() {
+        return pizzaList;
     }
 
     // returning the size of pizzaList for number of pizzas
