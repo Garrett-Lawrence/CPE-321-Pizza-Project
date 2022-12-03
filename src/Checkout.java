@@ -9,7 +9,7 @@ public class Checkout extends JDialog {
     private JPanel totalPricePanel;
     private JPanel pizzasPanel;
 
-    public Checkout(Order order) {
+    public Checkout(Order order) {                                          // sets up the checkout window GUI
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) (dimension.getWidth()/2);
         int y = (int) (dimension.getHeight()/2);
@@ -46,7 +46,7 @@ public class Checkout extends JDialog {
 //            JLabel pizzaLabel = new JLabel(pizza.getPizzaText());
             JTextArea pizzaTA = new JTextArea(pizza.getPizzaText());
             pizzaTA.setEditable(false);
-            String price = String.valueOf(order.getPizzaPrice(pizza));
+            String price = String.valueOf(order.getPizzaPrice(pizza));                          // gets total price of order.
             JTextArea priceLabel = new  JTextArea(String.valueOf(order.getPizzaPrice(pizza)));
             priceLabel.setEditable(false);
             pizzasPanel.add(pizzaTA);
@@ -58,7 +58,7 @@ public class Checkout extends JDialog {
         JTextArea priceLabel = new JTextArea("Total price: " + String.valueOf(order.getOrderPrice()));
         priceLabel.setEditable(false);
         totalPricePanel.add(priceLabel);
-
+                                                                        // ensures the checkout menu has proper spacing between pizzas and correct pizza info
     }
 
     private void onCancel() {
