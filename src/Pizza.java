@@ -21,6 +21,7 @@ public class Pizza implements Serializable {
      */
     public Pizza(){
     }
+    // constructor with pizza inputs
     public Pizza(ToppingsList toppings, Crust crust, Sauce sauce, Size size){
         pizzaToppings = toppings;
         pizzaCrust = crust;
@@ -28,6 +29,7 @@ public class Pizza implements Serializable {
         pizzaSize = size;
     }
 
+    // next couple of functions set the values of toppings, crust, size, and sauce for the pizza
     public void setPizzaToppings(ToppingsList pizzaToppings) {
         this.pizzaToppings = pizzaToppings;
     }
@@ -44,6 +46,7 @@ public class Pizza implements Serializable {
         this.pizzaSauce = pizzaSauce;
     }
 
+    // next couple of functions get the values of toppings, crust, sauce, and size
     public ToppingsList getPizzaToppings() {
         return this.pizzaToppings;
     }
@@ -58,6 +61,7 @@ public class Pizza implements Serializable {
 
     public Size getPizzaSize() { return this.pizzaSize; }
 
+    // ability to changeItems within pizza
     public void changeItem(String itemType, String newItem, double price) {
         if (itemType == "Crust"){
             pizzaCrust = new Crust(newItem, price);
@@ -68,14 +72,17 @@ public class Pizza implements Serializable {
         }
     }
 
+    // function to add toppings
     public void addTopping(Topping topping){
         pizzaToppings.add(topping);
     }
 
+    // function to remove toppings
     public void removeTopping(Topping topping){
         pizzaToppings.remove(topping);
     }
 
+    // function that stores the pizza information to an xml file
     public void storeToXml(){
         String fileName = String.valueOf(System.currentTimeMillis()) +".xml";
         System.out.println(fileName);
@@ -93,6 +100,7 @@ public class Pizza implements Serializable {
         encoder.close();
     }
 
+    // function to convert the pizza info to a string and return the string
     public String getPizzaText(){
         String toppingsString = "";
         for(int i = 0; i < pizzaToppings.getToppingsList().size(); i++){
