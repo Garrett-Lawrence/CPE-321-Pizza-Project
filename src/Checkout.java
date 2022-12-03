@@ -1,7 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-
+/**
+ * Checkout class that stores possible the information regarding a checkout process in the GUI
+ */
 public class Checkout extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
