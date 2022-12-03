@@ -15,7 +15,7 @@ public class Pizza implements Serializable {
     private Size pizzaSize;
     private Sauce pizzaSauce;
 
-    
+
     /**
      * Constructor Pizza
      */
@@ -58,11 +58,6 @@ public class Pizza implements Serializable {
 
     public Size getPizzaSize() { return this.pizzaSize; }
 
-
-
-
-
-
     public void changeItem(String itemType, String newItem, double price) {
         if (itemType == "Crust"){
             pizzaCrust = new Crust(newItem, price);
@@ -96,6 +91,18 @@ public class Pizza implements Serializable {
         }
         encoder.writeObject(this);
         encoder.close();
+    }
+
+    public String getPizzaText(){
+        String toppingsString = "";
+        for(int i = 0; i < pizzaToppings.getToppingsList().size(); i++){
+            toppingsString += ", " + pizzaToppings.getToppingsList().get(i).getToppingName();
+        }
+
+        return pizzaSize.getSize() + " " + pizzaCrust.getCrustName() + " crust pizza with " + pizzaSauce.getSauceName()
+                + " sauce" + toppingsString;
+
+
     }
 
 }

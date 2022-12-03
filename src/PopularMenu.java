@@ -21,16 +21,13 @@ public class PopularMenu extends JDialog {              // popular menu inherits
     private JPanel contentPane;
     private JButton checkoutButton;
     private JButton buttonCancel;
-    private JRadioButton smallRadioButton;
-    private JRadioButton largeRadioButton;
-    private JRadioButton mediumRadioButton;
-    private JRadioButton smallRadioButton1;
-    private JRadioButton largeRadioButton1;
-    private JRadioButton mediumRadioButton1;
-    private JRadioButton smallRadioButton2;
-    private JRadioButton largeRadioButton2;
-    private JRadioButton mediumRadioButton2;
+    private JRadioButton RadioButton1;
+    private JRadioButton RadioButton2;
+    private JRadioButton RadioButton3;
     private JButton addAnotherButton;
+    private JLabel pop1;
+    private JLabel pop2;
+    private JLabel pop3;
     private Order currentOrder;
 
 
@@ -46,9 +43,7 @@ public class PopularMenu extends JDialog {              // popular menu inherits
 
         // Grouped all 9 buttons together so that only one can be clicked at a time
         ButtonGroup group = new ButtonGroup();
-        group.add(smallRadioButton); group.add(mediumRadioButton); group.add(largeRadioButton);
-        group.add(smallRadioButton1); group.add(mediumRadioButton1); group.add(largeRadioButton1);
-        group.add(smallRadioButton2); group.add(mediumRadioButton2); group.add(largeRadioButton2);
+        group.add(RadioButton1); group.add(RadioButton2); group.add(RadioButton3);
 
         //set for popular pizzas
 
@@ -84,46 +79,29 @@ public class PopularMenu extends JDialog {              // popular menu inherits
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
+        ArrayList<Pizza> popularPizzas = new ArrayList<>();
+        popularPizzas = getPopularPizza();
+
+        pop1.setText(popularPizzas.get(0).getPizzaText());
+        pop2.setText(popularPizzas.get(1).getPizzaText());
+        pop3.setText(popularPizzas.get(2).getPizzaText());
 
     }
 
     private void onCheckout() {
         boolean check = true;
-        if (smallRadioButton.isSelected()) {
-            //pizza = new Pizza(popularPizza1.getPizzaToppings(), popularPizza1.getPizzaCrust(),
-            //popularPizza1.getPizzaSauce(), new Size("Small"));
+        ArrayList<Pizza> popularPizzas = new ArrayList<>();
+        popularPizzas = getPopularPizza();
+
+
+        if (RadioButton1.isSelected()) {
+            pizza = popularPizzas.get(0);
         }
-        else if (smallRadioButton1.isSelected()) {
-            pizza = new Pizza(popularPizza2.getPizzaToppings(), popularPizza2.getPizzaCrust(),
-                    popularPizza2.getPizzaSauce(), new Size("Small"));
+        else if (RadioButton2.isSelected()) {
+            pizza = popularPizzas.get(1);
         }
-        else if (smallRadioButton2.isSelected()) {
-            pizza = new Pizza(popularPizza3.getPizzaToppings(), popularPizza3.getPizzaCrust(),
-                    popularPizza3.getPizzaSauce(), new Size("Small"));
-        }
-        else if (mediumRadioButton.isSelected()) {
-            pizza = new Pizza(popularPizza1.getPizzaToppings(), popularPizza1.getPizzaCrust(),
-                    popularPizza1.getPizzaSauce(), new Size("Medium"));
-        }
-        else if (mediumRadioButton1.isSelected()) {
-            pizza = new Pizza(popularPizza2.getPizzaToppings(), popularPizza2.getPizzaCrust(),
-                    popularPizza2.getPizzaSauce(), new Size("Medium"));
-        }
-        else if (mediumRadioButton2.isSelected()) {
-            pizza = new Pizza(popularPizza3.getPizzaToppings(), popularPizza3.getPizzaCrust(),
-                    popularPizza3.getPizzaSauce(), new Size("Medium"));
-        }
-        else if (largeRadioButton.isSelected()) {
-            pizza = new Pizza(popularPizza1.getPizzaToppings(), popularPizza1.getPizzaCrust(),
-                    popularPizza1.getPizzaSauce(), new Size("Large"));
-        }
-        else if (largeRadioButton1.isSelected()) {
-            pizza = new Pizza(popularPizza2.getPizzaToppings(), popularPizza2.getPizzaCrust(),
-                    popularPizza2.getPizzaSauce(), new Size("Large"));
-        }
-        else if (largeRadioButton2.isSelected()) {
-            pizza = new Pizza(popularPizza3.getPizzaToppings(), popularPizza3.getPizzaCrust(),
-                    popularPizza3.getPizzaSauce(), new Size("Large"));
+        else if (RadioButton3.isSelected()) {
+            pizza = popularPizzas.get(2);
         }
         else {
             check = false;
@@ -132,6 +110,8 @@ public class PopularMenu extends JDialog {              // popular menu inherits
             errorWindow.setVisible(true);
         }
         if (check == true) {
+            pizza.storeToXml();
+            currentOrder.addPizzaToOrder(pizza);
             dispose();
             Checkout checkout = new Checkout();
             checkout.pack();
@@ -141,41 +121,17 @@ public class PopularMenu extends JDialog {              // popular menu inherits
 
     private void onAddAnother() {                   // adds another pizza
         boolean check = true;
-        if (smallRadioButton.isSelected()) {
-            //pizza = new Pizza(popularPizza1.getPizzaToppings(), popularPizza1.getPizzaCrust(),
-            //popularPizza1.getPizzaSauce(), new Size("Small"));
+        ArrayList<Pizza> popularPizzas = new ArrayList<>();
+        popularPizzas = getPopularPizza();
+
+        if (RadioButton1.isSelected()) {
+            pizza = popularPizzas.get(0);
         }
-        else if (smallRadioButton1.isSelected()) {
-            pizza = new Pizza(popularPizza2.getPizzaToppings(), popularPizza2.getPizzaCrust(),
-                    popularPizza2.getPizzaSauce(), new Size("Small"));
+        else if (RadioButton2.isSelected()) {
+            pizza = popularPizzas.get(1);
         }
-        else if (smallRadioButton2.isSelected()) {
-            pizza = new Pizza(popularPizza3.getPizzaToppings(), popularPizza3.getPizzaCrust(),
-                    popularPizza3.getPizzaSauce(), new Size("Small"));
-        }
-        else if (mediumRadioButton.isSelected()) {
-            pizza = new Pizza(popularPizza1.getPizzaToppings(), popularPizza1.getPizzaCrust(),
-                    popularPizza1.getPizzaSauce(), new Size("Medium"));
-        }
-        else if (mediumRadioButton1.isSelected()) {
-            pizza = new Pizza(popularPizza2.getPizzaToppings(), popularPizza2.getPizzaCrust(),
-                    popularPizza2.getPizzaSauce(), new Size("Medium"));
-        }
-        else if (mediumRadioButton2.isSelected()) {
-            pizza = new Pizza(popularPizza3.getPizzaToppings(), popularPizza3.getPizzaCrust(),
-                    popularPizza3.getPizzaSauce(), new Size("Medium"));
-        }
-        else if (largeRadioButton.isSelected()) {
-            pizza = new Pizza(popularPizza1.getPizzaToppings(), popularPizza1.getPizzaCrust(),
-                    popularPizza1.getPizzaSauce(), new Size("Large"));
-        }
-        else if (largeRadioButton1.isSelected()) {
-            pizza = new Pizza(popularPizza2.getPizzaToppings(), popularPizza2.getPizzaCrust(),
-                    popularPizza2.getPizzaSauce(), new Size("Large"));
-        }
-        else if (largeRadioButton2.isSelected()) {
-            pizza = new Pizza(popularPizza3.getPizzaToppings(), popularPizza3.getPizzaCrust(),
-                    popularPizza3.getPizzaSauce(), new Size("Large"));
+        else if (RadioButton3.isSelected()) {
+            pizza = popularPizzas.get(2);
         }
         else {
             check = false;
@@ -184,6 +140,8 @@ public class PopularMenu extends JDialog {              // popular menu inherits
             errorWindow.setVisible(true);
         }
         if (check == true) {                                    // if check turns out false, close the current window and show second window
+            pizza.storeToXml();
+            currentOrder.addPizzaToOrder(pizza);
             dispose();
             SecondWindow secondWindow = new SecondWindow(currentOrder);
             secondWindow.pack();
@@ -198,9 +156,9 @@ public class PopularMenu extends JDialog {              // popular menu inherits
         secondWindow.setVisible(true);
     }
 
-    public void getPopularToppings() {
+    public ArrayList<Pizza> getPopularPizza() {
 
-        File folder = new File("/pastPizzas");
+        File folder = new File("src/pastPizzas");
         File[] listOfFiles = folder.listFiles();
         ArrayList<Pizza> oldPizzas = new ArrayList<>();
 
@@ -217,6 +175,11 @@ public class PopularMenu extends JDialog {              // popular menu inherits
         }
 
         //TODO for loop here to parse through the list of objects oldPizzas and find popular toppings
+        ArrayList<Pizza> popularPizzas = new ArrayList<>();
+        for(int i=0; i<3; i++){
+            popularPizzas.add(oldPizzas.get(i));
+        }
+        return popularPizzas;
 
     }
 

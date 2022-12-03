@@ -9,7 +9,7 @@
       <alignmentX value="0.5"/>
       <alignmentY value="0.5"/>
       <inheritsPopupMenu value="false"/>
-      <preferredSize width="500" height="500"/>
+      <preferredSize width="900" height="500"/>
     </properties>
     <border type="none"/>
     <children>

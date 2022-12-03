@@ -6,7 +6,7 @@
       <xy x="48" y="54" width="546" height="495"/>
     </constraints>
     <properties>
-      <preferredSize width="500" height="500"/>
+      <preferredSize width="900" height="500"/>
     </properties>
     <border type="none"/>
     <children>
@@ -62,36 +62,20 @@
         <properties/>
         <border type="none" title="Popular Pizza 3"/>
         <children>
-          <component id="5e101" class="javax.swing.JRadioButton" binding="smallRadioButton2" default-binding="true">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Small"/>
-            </properties>
-          </component>
-          <component id="70e41" class="javax.swing.JRadioButton" binding="largeRadioButton2" default-binding="true">
-            <constraints>
-              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Large"/>
-            </properties>
-          </component>
-          <component id="f033b" class="javax.swing.JRadioButton" binding="mediumRadioButton2" default-binding="true">
-            <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Medium"/>
-            </properties>
-          </component>
-          <component id="2ac2" class="javax.swing.JLabel">
+          <component id="2ac2" class="javax.swing.JLabel" binding="pop1">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Label"/>
+            </properties>
+          </component>
+          <component id="5e101" class="javax.swing.JRadioButton" binding="RadioButton3">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Select"/>
             </properties>
           </component>
         </children>
@@ -104,36 +88,20 @@
         <properties/>
         <border type="none" title="Popular Pizza 2"/>
         <children>
-          <component id="92514" class="javax.swing.JRadioButton" binding="smallRadioButton1" default-binding="true">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Small"/>
-            </properties>
-          </component>
-          <component id="9f410" class="javax.swing.JRadioButton" binding="largeRadioButton1" default-binding="true">
-            <constraints>
-              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Large"/>
-            </properties>
-          </component>
-          <component id="cc3d" class="javax.swing.JRadioButton" binding="mediumRadioButton1" default-binding="true">
-            <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Medium"/>
-            </properties>
-          </component>
-          <component id="3332b" class="javax.swing.JLabel">
+          <component id="3332b" class="javax.swing.JLabel" binding="pop2">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Label"/>
+            </properties>
+          </component>
+          <component id="92514" class="javax.swing.JRadioButton" binding="RadioButton2">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Select"/>
             </properties>
           </component>
         </children>
@@ -146,36 +114,20 @@
         <properties/>
         <border type="none" title="Popular Pizza 1"/>
         <children>
-          <component id="3a74c" class="javax.swing.JRadioButton" binding="smallRadioButton" default-binding="true">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Small"/>
-            </properties>
-          </component>
-          <component id="8e759" class="javax.swing.JRadioButton" binding="largeRadioButton" default-binding="true">
-            <constraints>
-              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Large"/>
-            </properties>
-          </component>
-          <component id="411b9" class="javax.swing.JRadioButton" binding="mediumRadioButton" default-binding="true">
-            <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Medium"/>
-            </properties>
-          </component>
-          <component id="47d1a" class="javax.swing.JLabel">
+          <component id="47d1a" class="javax.swing.JLabel" binding="pop3">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Label"/>
+            </properties>
+          </component>
+          <component id="3a74c" class="javax.swing.JRadioButton" binding="RadioButton1">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Select"/>
             </properties>
           </component>
         </children>
