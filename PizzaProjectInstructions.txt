@@ -1,0 +1,45 @@
+Instructions for Running Charger Pizza App
+
+Pull the code from the GitHub: https://github.com/Garrett-Lawrence/CPE-321-Pizza-Project.git
+Open WelcomeWindow.java file in an IDE (we used IntelliJ). 
+Run the script from the IDE by clicking on the green run button. 
+The WelcomeWindow will pop up on the screen. 
+
+Here you have 3 choices: Start Order, Cancel, or the top right x. 
+To exit the program, click Cancel or the top right x.
+Click Start Order to start ordering pizza!
+
+Once Start Order is clicked, the Second Window will pop up.
+You have 3 choices: Popular Menu, Custom Menu, or the top right x.
+To exit the program, click the top right x.
+
+Clicking Popular Menu opens up the Popular Menu Window which allows you to chose from 3 of the most popular...
+pizzas based on previously saved pizzas stored in xml files.
+After clicking on one of the Select buttons (you can only choose one), you can either click on Checkout,
+Add Another, Cancel, or the top right x. 
+Clicking top right x will exit the program.
+Clicking Checkout will bring you to the checkout menu.
+Clicking AddAnother will take you back to the Second Window. 
+Clicking Cancel will exit out of the PopularMenu window. 
+
+From the SecondWindow, clicking Custom Menu will open the Custom Menu window. 
+Here you can choose the size, sauce, and crust you want. You can only chose one of each from these options.
+You can check as many toppings as you want or you can check no toppings. 
+When done adding components of the pizza, you can either click on Checkout,
+Add Another, Cancel, or the top right x.
+Clicking top right x will exit the program.
+Clicking Checkout will bring you to the checkout menu.
+Clicking AddAnother will take you back to the Second Window. 
+Clicking Cancel will exit out of the PopularMenu window. 
+
+Once the Checkout button is clicked, the Checkout window will pop up. Here, a summary of your pizzas will display,
+along with a price summary and total price. You can click either the Close button or the top right x to close the program.
+
+If when in Custom Menu window you try to Checkout or AddAnother pizza without making a selection, the error
+window will pop up. You can click the OK button within the Error Window and you will return to the previous window.
+
+
+
+
+
+

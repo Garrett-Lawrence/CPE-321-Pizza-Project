@@ -7,7 +7,7 @@ public class ToppingsList {
 
 
     private ArrayList<Topping> toppingsList;
-    private double toppingsPrice;
+    private double toppingsPrice; // stores total price of toppings that user chose
     public ToppingsList(){
         toppingsList = new ArrayList<>() ;
     }   // constructor creates new arraylist for toppings
