@@ -158,7 +158,7 @@ public class PopularMenu extends JDialog {              // popular menu inherits
         secondWindow.setVisible(true);
     }
 
-    public ArrayList<Pizza> getPopularPizza() {
+    public ArrayList<Pizza> getPopularPizza() {                 // function to get the popular pizza from XML file
 
         File folder = new File("src/pastPizzas");
         File[] listOfFiles = folder.listFiles();
@@ -185,7 +185,7 @@ public class PopularMenu extends JDialog {              // popular menu inherits
         for(int i=1; i<oldPizzas.size(); i++){
             int z=proxyPizzas.size();
             for(int j=0; j<z; j++){
-                if(oldPizzas.get(i).getPizzaText().equals(proxyPizzas.get(j).getPizzaText())){
+                if(oldPizzas.get(i).getPizzaText().equals(proxyPizzas.get(j).getPizzaText())){          // calculates the most popular pizza
                     counts.add(j,counts.get(j)+1);
                 }
                 else{
@@ -203,7 +203,7 @@ public class PopularMenu extends JDialog {              // popular menu inherits
             proxyPizzas.remove(counts.indexOf(Collections.max(counts)));
             counts.remove(counts.indexOf(Collections.max(counts)));
         }
-        return popularPizzas;
+        return popularPizzas;                                                   // returns the final value of the most popular pizza
     }
 
 }
