@@ -323,7 +323,7 @@ public class CustomMenu extends JDialog {
         dispose();
 
         //opening second window
-        SecondWindow secondWindow = new SecondWindow(currentOrder);
+        SecondWindow secondWindow = new SecondWindow(currentOrder);         // once cancel is pressed closes current window
         secondWindow.pack();
         secondWindow.setVisible(true);
     }
